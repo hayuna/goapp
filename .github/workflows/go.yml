@@ -30,6 +30,8 @@ jobs:
     - name: Heroku
       run: |
         docker login --username=_ --password=42176340-89e4-48a7-99c0-260db7c19058 registry.heroku.com
-        heroku container:push web --app immense-cliffs-99736
-        heroku container:release web --app immense-cliffs-99736
+        docker build -t registry.heroku.com/immense-cliffs-99736/web .
+        docker push registry.heroku.com/immense-cliffs-99736/web
+        # heroku container:push web --app immense-cliffs-99736
+        # heroku container:release web --app immense-cliffs-99736
       
